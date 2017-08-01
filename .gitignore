@@ -1,0 +1,6 @@
+Do/.classpath
+*.project
+Do/.settings/org.eclipse.jdt.core.prefs
+.metadata
+.recommenders
+Do/bin
