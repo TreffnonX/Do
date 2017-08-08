@@ -64,6 +64,19 @@ public class Do {
 	}
 	
 	/**
+	 * <i>Sort of casts an {@link Object} to null.</i>
+	 * 
+	 * Takes a generic {@link Object} as parameter without doing anything to or with it.
+	 * This method is simply there to "destroy" a return value, in order to satisfy a
+	 * lambda expression.
+	 * 
+	 * @param ignored Ignored value.
+	 */
+	public static <T> Object asNull(T ignored) {
+		return null;
+	}
+	
+	/**
 	 * <i>Sort of casts an {@link Object} to primitive boolean true.</i>
 	 * 
 	 * Takes a generic {@link Object} as parameter without doing anything to or with it.
@@ -82,7 +95,7 @@ public class Do {
 	 * @param then Executed if the condition is true.
 	 * @param elze Executed if the condition is false.
 	 */
-	public static <T> void on(boolean condition, Runnable then, Runnable elze) {
+	public static void on(boolean condition, Runnable then, Runnable elze) {
 		if (condition) {
 			then.run();
 		} else {
@@ -97,7 +110,7 @@ public class Do {
 	 * @param condition Condition defining if the lambda is executed.
 	 * @param then Executed if the condition is true.
 	 */
-	public static <T> void on(boolean condition, Runnable then) {
+	public static void on(boolean condition, Runnable then) {
 		if (condition) {
 			then.run();
 		}
