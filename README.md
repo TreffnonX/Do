@@ -14,9 +14,9 @@ if (a != null) {
 
 T val = Either.of(a).or(b)...orElse(def).get();
 
-// also possible:
-
-T val = Either.of(a).or(() -> something()).orElse(() -> somethingElse()).get();
+// both methods (of and or) take T, Supplier<T> and Runnables.
+// The first value != null is returned as Optional. If no such value is returned,
+// an empty Optional is returned.
 ```
 and provides helper classes to shorthand if constructs into single expressions,
 reducing the outline of certain lambda constellations:
