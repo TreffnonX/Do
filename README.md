@@ -12,7 +12,11 @@ if (a != null) {
 
 // abbreviated to
 
-T val = Either.of(a).or(b)...orElse(def);
+T val = Either.of(a).or(b)...orElse(def).get();
+
+// also possible:
+
+T val = Either.of(a).or(() -> something()).orElse(() -> somethingElse()).get();
 ```
 and provides helper classes to shorthand if constructs into single expressions,
 reducing the outline of certain lambda constellations:
