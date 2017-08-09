@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package eu.graphitez.utils.ldo;
+package eu.graphitez.utils.generic;
 
 import java.util.Optional;
 import java.util.function.Supplier;

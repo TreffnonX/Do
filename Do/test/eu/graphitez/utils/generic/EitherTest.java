@@ -1,4 +1,4 @@
-package eu.graphitez.utils.ldo;
+package eu.graphitez.utils.generic;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,6 +6,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Optional;
 
 import org.junit.Test;
+
+import eu.graphitez.utils.generic.Either;
 
 /**
  * @author Janis Schöck - janis@schoeck-netz.de

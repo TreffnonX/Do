@@ -1,11 +1,11 @@
-package eu.graphitez.utils.ldo;
+package eu.graphitez.utils.generic;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import eu.graphitez.utils.ldo.Do;
+import eu.graphitez.utils.generic.Do;
 
 /**
  * @author Janis Schöck - janis@schoeck-netz.de
