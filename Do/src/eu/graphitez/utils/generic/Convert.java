@@ -87,9 +87,9 @@ public class Convert {
 	 * @return {@link List} of R elements.
 	 */
 	public static <E, R> List<R> inner(Stream<E> stream, Function<? super E, R> transformer) {
-		return stream.filter(Null::not)
+		return stream.filter(o -> o != null)
 					 .map(transformer)
-					 .filter(Null::not)
+					 .filter(o -> o != null)
 					 .collect(Collectors.toList());
 	}
 	
