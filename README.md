@@ -31,6 +31,6 @@ Runnable r = () -> {
 
 // abbreviated to
 
-Runnable r = Do.on(condition, () -> operation_a, () -> operation_b);
+Runnable r = () -> Do.on(condition, () -> operation_a, () -> operation_b);
 ```
 New input for additional shorthands or optimization of existing ones is very welcome.
