@@ -32,5 +32,5 @@ public interface Preparable<T> {
 	/**
 	 * @return Optional wrapping the returned value, if present.
 	 */
-	public Optional<T> run();
+	public Optional<T> opt();
 }

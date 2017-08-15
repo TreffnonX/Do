@@ -6,13 +6,13 @@ import org.junit.runners.Suite;
 import eu.graphitez.utils.generic.CompareTest;
 import eu.graphitez.utils.generic.ConvertTest;
 import eu.graphitez.utils.generic.DoTest;
-import eu.graphitez.utils.generic.EitherTest;
+import eu.graphitez.utils.generic.FirstTest;
 
 @Suite.SuiteClasses({
 	CompareTest.class,
 	ConvertTest.class,
 	DoTest.class,
-	EitherTest.class
+	FirstTest.class
 })
 
 /**

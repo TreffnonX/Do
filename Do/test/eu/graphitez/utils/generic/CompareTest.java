@@ -20,20 +20,20 @@ public class CompareTest {
 		C[] c = new C[]{ new C(1), new C(2), new C(3) };
 		
 		// Arrays
-		assertTrue(Compare.byEquals(a, a));
-		assertTrue(Compare.byEquals(b, b));
-		assertTrue(Compare.byEquals(c, c));
-		assertTrue(Compare.byEquals(a, b));
-		assertTrue(Compare.byEquals(b, c));
-		assertTrue(Compare.byEquals(a, c));
+		assertTrue(Compare.elements(a, a));
+		assertTrue(Compare.elements(b, b));
+		assertTrue(Compare.elements(c, c));
+		assertTrue(Compare.elements(a, b));
+		assertTrue(Compare.elements(b, c));
+		assertTrue(Compare.elements(a, c));
 		
 		// Arrays and Iterables
-		assertTrue(Compare.byEquals(Arrays.asList(a), a));
-		assertTrue(Compare.byEquals(b, Arrays.asList(b)));
-		assertTrue(Compare.byEquals(Arrays.asList(c), c));
-		assertTrue(Compare.byEquals(Arrays.asList(a), Arrays.asList(b)));
-		assertTrue(Compare.byEquals(b, Arrays.asList(c)));
-		assertTrue(Compare.byEquals(Arrays.asList(a), c));
+		assertTrue(Compare.elements(Arrays.asList(a), a));
+		assertTrue(Compare.elements(b, Arrays.asList(b)));
+		assertTrue(Compare.elements(Arrays.asList(c), c));
+		assertTrue(Compare.elements(Arrays.asList(a), Arrays.asList(b)));
+		assertTrue(Compare.elements(b, Arrays.asList(c)));
+		assertTrue(Compare.elements(Arrays.asList(a), c));
 	}
 	
 	@Test
@@ -43,14 +43,14 @@ public class CompareTest {
 		C[] c = new C[]{ new C(1), new C(4), new C(3) };
 		
 		// Arrays
-		assertFalse(Compare.byEquals(a, b));
-		assertFalse(Compare.byEquals(b, c));
-		assertFalse(Compare.byEquals(a, c));
+		assertFalse(Compare.elements(a, b));
+		assertFalse(Compare.elements(b, c));
+		assertFalse(Compare.elements(a, c));
 		
 		// Arrays and Iterables
-		assertFalse(Compare.byEquals(Arrays.asList(a), Arrays.asList(b)));
-		assertFalse(Compare.byEquals(b, Arrays.asList(c)));
-		assertFalse(Compare.byEquals(Arrays.asList(a), c));
+		assertFalse(Compare.elements(Arrays.asList(a), Arrays.asList(b)));
+		assertFalse(Compare.elements(b, Arrays.asList(c)));
+		assertFalse(Compare.elements(Arrays.asList(a), c));
 	}
 	
 	@Test
@@ -60,14 +60,37 @@ public class CompareTest {
 		C[] c = new C[]{ new C(1), new C(2) };
 		
 		// Arrays
-		assertFalse(Compare.byEquals(a, b));
-		assertFalse(Compare.byEquals(b, c));
-		assertFalse(Compare.byEquals(a, c));
+		assertFalse(Compare.elements(a, b));
+		assertFalse(Compare.elements(b, c));
+		assertFalse(Compare.elements(a, c));
 		
 		// Arrays and Iterables
-		assertFalse(Compare.byEquals(Arrays.asList(a), Arrays.asList(b)));
-		assertFalse(Compare.byEquals(b, Arrays.asList(c)));
-		assertFalse(Compare.byEquals(Arrays.asList(a), c));
+		assertFalse(Compare.elements(Arrays.asList(a), Arrays.asList(b)));
+		assertFalse(Compare.elements(b, Arrays.asList(c)));
+		assertFalse(Compare.elements(Arrays.asList(a), c));
+	}
+	
+	@Test
+	public void test_compareForced() {
+		Object someObject = new Object();
+		Object someOtherObject = new Object();
+		Object[] a = { null, "tiff", 4, someObject };
+		String[] b = { null, "test", "4" };
+		Object[] c = { null, "test", "4" };
+		Object[] d = { null, "test", 4, someObject };
+		Object[] e = { null, "test", 4, someObject };
+		Object[] f = { null, "test", 4, someOtherObject };
+		
+		// true
+		assertTrue(Compare.elementsForced(b, c));
+		assertTrue(Compare.elementsForced(d, e));
+		
+		// false
+		assertFalse(Compare.elementsForced(a, b));
+		assertFalse(Compare.elementsForced(b, d));
+		assertFalse(Compare.elementsForced(a, e));
+		assertFalse(Compare.elementsForced(a, c));
+		assertFalse(Compare.elementsForced(d, f));
 	}
 	
 	public static class A implements Comparable<A> {

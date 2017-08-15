@@ -21,28 +21,29 @@ public class ConvertTest {
 		
 		// map some values from E to R
 		List<String> result_0 = Convert.map(intArray, Number::toString);
-		assertTrue(Compare.byEquals(result_0, stringArray));
-		assertTrue(Compare.byEquals(stringArray, result_0));
+		assertTrue(Compare.elements(result_0, stringArray));
+		assertTrue(Compare.elements(stringArray, result_0));
 		
 		List<Integer> result_1 = Convert.map(intString.split("[\\, ]+"), Integer::parseInt);
-		assertTrue(Compare.byEquals(result_1, intArray));
-		assertTrue(Compare.byEquals(intArray, result_1));
+		assertTrue(Compare.elements(result_1, intArray));
+		assertTrue(Compare.elements(intArray, result_1));
 	}
 	
 	@Test
 	public void test_convertInner() {
 		Integer[] intArray = { 0, 1, 2, null, 7, 11, null, 11, 14, 21 };
 		String[] stringArrayResult = { "0", "1", "2", "7", "11", "11", "14", "21" }; 
-		String intString = "0, 1, 2, 7, 11, 11, 14, 21";
-		Integer[] intArrayResult = { 0, 1, 2, 7, 11, 11, 14, 21 };
 		
 		// map some values from E to R
 		List<String> result_0 = Convert.inner(intArray, Number::toString);
-		assertTrue(Compare.byEquals(result_0, stringArrayResult));
-		assertTrue(Compare.byEquals(stringArrayResult, result_0));
+		assertTrue(Compare.elements(result_0, stringArrayResult));
+		assertTrue(Compare.elements(stringArrayResult, result_0));
+		
+		String intString = "0, 1, 2, 7, 11, 11, 14, 21";
+		Integer[] intArrayResult = { 0, 1, 2, 7, 11, 11, 14, 21 };
 		
 		List<Integer> result_1 = Convert.inner(intString.split("[\\, ]+"), Integer::parseInt);
-		assertTrue(Compare.byEquals(result_1, intArrayResult));
-		assertTrue(Compare.byEquals(intArrayResult, result_1));
+		assertTrue(Compare.elements(result_1, intArrayResult));
+		assertTrue(Compare.elements(intArrayResult, result_1));
 	}
 }

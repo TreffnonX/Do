@@ -61,7 +61,7 @@ public class OptionalProvider<T> implements Preparable<T> {
 	}
 	
 	@Override
-	public Optional<T> run() {
+	public Optional<T> opt() {
 		if (m_supplier != null) {
 			T value = m_supplier.get();
 			if (value == null) {
