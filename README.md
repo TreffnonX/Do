@@ -12,7 +12,7 @@ if (a != null) {
 
 // abbreviated to
 
-T val = Either.of(a).or(b)...orDef(def);
+T val = First.of(a).or(b)...orDef(def);
 
 // both methods (of and or) take T, Supplier<T> and Runnables.
 // The first value != null is returned as Optional. If no such value is returned,
