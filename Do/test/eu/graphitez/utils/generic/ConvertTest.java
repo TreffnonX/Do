@@ -1,5 +1,6 @@
 package eu.graphitez.utils.generic;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -19,14 +20,25 @@ public class ConvertTest {
 		String intString = "0, 1, 2, 4, 7, 11, 11, 11, 14, 21";
 		String[] stringArray = { "0", "1", "2", "4", "7", "11", "11", "11", "14", "21" }; 
 		
+		Integer[] intArray2 = { 0, 1, 2, 4, 7, 11, 11, 13, 14, 21 };
+		String intString2 = "0, 1, 2, 4, 7, 11, 11, 13, 14, 21";
+		String[] stringArray2 = { "0", "1", "2", "4", "7", "11", "11", "13", "14", "21" }; 
+		
 		// map some values from E to R
 		List<String> result_0 = Convert.map(intArray, Number::toString);
 		assertTrue(Compare.elements(result_0, stringArray));
 		assertTrue(Compare.elements(stringArray, result_0));
+		assertFalse(Compare.elements(result_0, stringArray2));
 		
 		List<Integer> result_1 = Convert.map(intString.split("[\\, ]+"), Integer::parseInt);
 		assertTrue(Compare.elements(result_1, intArray));
 		assertTrue(Compare.elements(intArray, result_1));
+		assertFalse(Compare.elements(result_1, intArray2));
+		
+		List<Integer> result_2 = Convert.map(intString2.split("[\\, ]+"), Integer::parseInt);
+		assertTrue(Compare.elements(result_2, intArray2));
+		assertTrue(Compare.elements(intArray2, result_2));
+		assertFalse(Compare.elements(result_2, intArray));
 	}
 	
 	@Test

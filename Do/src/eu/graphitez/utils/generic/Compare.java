@@ -285,13 +285,12 @@ public class Compare {
 	 *         both objects where null.
 	 */
 	public static <T extends Comparable<T>> boolean comparables(T left, T right) {
-		// null check.
-		if (left == null) {
-			if (right != null) {
-				return false;
-			}
+		// trivial check.
+		if (left == right) {
 			return true;
-		} else if (right == null) {
+		}
+		// null checks.
+		if (left == null || right == null) {
 			return false;
 		}
 

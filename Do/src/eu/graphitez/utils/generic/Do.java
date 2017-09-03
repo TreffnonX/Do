@@ -47,7 +47,7 @@ public class Do {
 	 * @param ignored Ignored value.
 	 */
 	public static void asVoid(boolean ignored) {
-		// This method needs to do nothing but swallow the passed object.
+		// This method needs to do nothing but swallow the passed value.
 	}
 	
 	/**
@@ -67,7 +67,7 @@ public class Do {
 	 * <i>Sort of casts an {@link Object} to null.</i>
 	 * 
 	 * Takes a generic {@link Object} as parameter without doing anything to or with it.
-	 * This method is simply there to "destroy" a return value, in order to satisfy a
+	 * This method is simply there to replace a return value, in order to satisfy a
 	 * lambda expression.
 	 * 
 	 * @param ignored Ignored value.
@@ -85,6 +85,17 @@ public class Do {
 	 */
 	public static <T> boolean asTrue(T ignored) {
 		return true;
+	}
+	
+	/**
+	 * <i>Sort of casts an {@link Object} to primitive boolean false.</i>
+	 * 
+	 * Takes a generic {@link Object} as parameter without doing anything to or with it.
+	 * 
+	 * @param ignored Ignored value.
+	 */
+	public static <T> boolean asFalse(T ignored) {
+		return false;
 	}
 	
 	/**
